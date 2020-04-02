@@ -625,7 +625,14 @@ public class Laba4 {
 
         double sAD = sum * 3 / (N - d ) ;
         double fP = sAD / sb ;
-        if ((f3 -1  < 20 ) && ( f4-1 < 8 ) ){
+
+        // константи використовуються для перевірки : чи не вийде значення f3-1 та f4-1 за межі таблиці,
+        // щоб у такому разі присвоїти значення при нескінченності (останній рядок та стовпчик таблиці)
+
+
+        int constLastRow = 20;
+        int constLastColumn = 8;
+        if ((f3 -1  < constLastRow) && ( f4-1 < constLastColumn) ){
         if (fP < FisheraTable[f3-1][f4-1]){
             System.out.println("Перевірка за критерієм Фішера");
             System.out.println("Отже, рівняння регресії адекватно оригіналу при рівні значимості 0.05");
@@ -635,8 +642,8 @@ public class Laba4 {
         }
         System.out.println();
         }
-        else if ((f3 -1  > 20 ) && ( f4-1 < 8 ) ){
-            if (fP < FisheraTable[20][f4-1]){
+        else if ((f3 -1  > constLastRow) && ( f4-1 < constLastColumn) ){
+            if (fP < FisheraTable[constLastRow][f4-1]){
                 System.out.println("Перевірка за критерієм Фішера");
                 System.out.println("Отже, рівняння регресії адекватно оригіналу при рівні значимості 0.05");
             }
@@ -645,8 +652,8 @@ public class Laba4 {
             }
             System.out.println();
         }
-        else if ((f3 -1  < 20 ) && ( f4-1 > 8 ) ){
-            if (fP < FisheraTable[f3-1][8]){
+        else if ((f3 -1  < constLastRow) && ( f4-1 > constLastColumn) ){
+            if (fP < FisheraTable[f3-1][constLastColumn]){
                 System.out.println("Перевірка за критерієм Фішера");
                 System.out.println("Отже, рівняння регресії адекватно оригіналу при рівні значимості 0.05");
             }
@@ -655,8 +662,8 @@ public class Laba4 {
             }
             System.out.println();
         }
-        else if ((f3 -1  > 20 ) && ( f4-1 > 8 ) ){
-            if (fP < FisheraTable[20][8]){
+        else if ((f3 -1  > constLastRow) && ( f4-1 > constLastColumn) ){
+            if (fP < FisheraTable[constLastRow][constLastColumn]){
                 System.out.println("Перевірка за критерієм Фішера");
                 System.out.println("Отже, рівняння регресії адекватно оригіналу при рівні значимості 0.05");
             }
